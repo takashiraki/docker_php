@@ -1,0 +1,6 @@
+**/.DS_store
+.env
+/src/*
+!/src/.gitkeep
+!/src/index.php
+/.devcontainer/devcontainer.json
