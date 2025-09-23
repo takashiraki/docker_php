@@ -4,13 +4,8 @@ services:
   php:
     build: ./php
     container_name: ${CONTAINER_NAME}
-    environment:
-      VIRTUAL_HOST: ${VIRTUAL_HOST}
-      LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
-      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
-      LETSENCRYPT_TEST: ${LETSENCRYPT_TEST}
-      CERT_NAME: ${CERT_NAME}
-      TZ: Asia/Tokyo
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
     volumes:
       - ./${REPOSITORY_PATH}:/var/www/html
     networks:
