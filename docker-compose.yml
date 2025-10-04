@@ -9,16 +9,16 @@ services:
     volumes:
       - ./${REPOSITORY_PATH}:/var/www/html
     networks:
-      - php_debug_network
-      - my_infra_network
-      - my_proxy_network
+      - myenv_php_network
+      # - my_infra_network
+      # - my_proxy_network
 
 networks:
-  php_debug_network:
-    name: php_debug_network
-  my_infra_network:
-    external: true
-    name: my_infra_network
-  my_proxy_network:
-    external: true
-    name: my_proxy_network
+  myenv_php_network:
+    name: myenv_php_network
+  # my_infra_network:
+  #   external: true
+  #   name: my_infra_network
+  # my_proxy_network:
+  #   external: true
+  #   name: my_proxy_network
