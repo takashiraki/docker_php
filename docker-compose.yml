@@ -4,21 +4,26 @@ services:
   php:
     build: ./php
     container_name: ${CONTAINER_NAME}
-    ports:
-      - ${HOST_PORT}:${CONTAINER_PORT}
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+      LETSENCRYPT_TEST: ${LETSENCRYPT_TEST}
+      CERT_NAME: ${CERT_NAME}
+      TZ: ${TZ}
     volumes:
       - ./${REPOSITORY_PATH}:/var/www/html
     networks:
       - myenv_php_network
-      # - my_infra_network
-      # - my_proxy_network
+      - my_infra_network
+      - my_proxy_network
 
 networks:
   myenv_php_network:
     name: myenv_php_network
-  # my_infra_network:
-  #   external: true
-  #   name: my_infra_network
-  # my_proxy_network:
-  #   external: true
-  #   name: my_proxy_network
+  my_infra_network:
+    external: true
+    name: my_infra_network
+  my_proxy_network:
+    external: true
+    name: my_proxy_network
