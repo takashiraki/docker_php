@@ -1,7 +1,7 @@
 FROM php:8.3-apache
 
 RUN apt-get update \
-    && apt-get install -y unzip libpq-dev git vim gh \
+    && apt-get install -y unzip libpq-dev git vim gh msmtp msmtp-mta \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && docker-php-ext-install mysqli pdo_mysql opcache \
