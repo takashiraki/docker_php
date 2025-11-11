@@ -13,6 +13,7 @@ services:
       TZ: ${TZ}
     volumes:
       - ./${REPOSITORY_PATH}:/var/www/html
+      - ./php/msmtprc:/etc/msmtprc
     networks:
       - myenv_php_network
       - my_infra_network
